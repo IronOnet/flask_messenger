@@ -2,8 +2,8 @@ from datetime import date, datetime
 
 from flask_sqlalchemy import SQLAlchemy 
 
-from base_resource import AddUpdateDelete 
-from base import db
+from api.models.base_resource import AddUpdateDelete 
+from .base import db
 
 
 
@@ -13,4 +13,4 @@ class Channel(db.Model, AddUpdateDelete):
     messages = db.relationship('GroupMessage', backref='channel') 
     members = db.relationship('User', backref='channel')  
     created_at = db.Column(db.DateTime(), default=datetime.now) 
-    updated_at = db.Column(db.DateTime(), default=datetime.now ,updatenow=datetime.now)
+    updated_at = db.Column(db.DateTime(), default=datetime.now , onupdate=datetime.now)

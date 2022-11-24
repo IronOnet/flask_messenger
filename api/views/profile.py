@@ -4,8 +4,8 @@ from flask import Flask
 from flask_restful import abort, Api, fields,  marshal_with, reqparse, Resource 
 from pytz import utc 
 
-from models.profile import Profile as ProfileModel 
-import status 
+from api.models.profile import Profile as ProfileModel 
+import api.status as status 
 
 class ProfileManager(): 
     last_id = 0 

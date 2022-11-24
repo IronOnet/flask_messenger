@@ -3,10 +3,10 @@ from datetime import datetime
 from flask_restful import abort, fields, marshal_with, reqparse, Resource 
 from pytz import utc 
 
-from models.channels import Channel as ChannelModel  
-from api.message import message_fields
-from api.users import user_fields
-import status 
+from api.models.channels import Channel as ChannelModel  
+from api.views.message import message_fields
+from api.views.users import user_fields
+import api.status as status 
 
 class ChannelManager(): 
     last_id = 0 

@@ -4,8 +4,8 @@ from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy 
 from flask_marshmallow import Marshmallow 
 
-from models.base_resource import AddUpdateDelete
-from models.base import db 
+from api.models.base_resource import AddUpdateDelete
+from api.models.base import db 
 
  
 
@@ -15,7 +15,7 @@ class Profile(db.Model, AddUpdateDelete):
     profile_bio = db.Column(db.Text(30), nullable=True)
     profile_picture = db.Column(db.String(250), nullable=True)
     created_at = db.Column(db.DateTime(), default=datetime.now) 
-    updated_at = db.Column(db.DateTime(), default=datetime.now, updatenow=datetime.now) 
+    updated_at = db.Column(db.DateTime(), default=datetime.now, onupdate=datetime.now) 
 
     def save_profile_pic(self): 
         # save the profile link and 

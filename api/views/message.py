@@ -1,11 +1,11 @@
 from datetime import datetime 
 
 from flask import Flask  
-from flask_restful import abort, Api, fields, marshall_with, reqparse, Resource  
+from flask_restful import abort, Api, fields, marshal_with, reqparse, Resource  
 from pytz import utc 
 
-from models.messages import Message as MessageModel 
-import status 
+from api.models.messages import Message as MessageModel 
+import api.status as status
 
 
 class MessageManager(): 
@@ -43,7 +43,7 @@ class MessageResource(Resource):
                 message= f"Message {id} doesn't exist"
             )
 
-    @marshall_with(message_fields) 
+    @marshal_with(message_fields) 
     def get(self, id): 
         self.abort_if_message_doesnt_exist(id) 
         return message_manager.get_message(id) 
@@ -53,7 +53,7 @@ class MessageResource(Resource):
         message_manager.delete_message(id) 
         return '', status.HTTP_204_NO_CONTENT 
 
-    @marshall_with(message_fields) 
+    @marshal_with(message_fields) 
     def patch(self, id): 
         self.abort_if_message_doesnt_exist(id) 
         message = message_manager.get_message(id) 
@@ -67,12 +67,12 @@ class MessageResource(Resource):
         return message 
 
 class MessageListResource(Resource): 
-    @marshall_with(message_fields) 
+    @marshal_with(message_fields) 
     def get(self): 
         return [v for v in message_manager.messages.values()] 
 
 
-    @marshall_with(message_fields) 
+    @marshal_with(message_fields) 
     def post(self): 
         parser = reqparse.RequestParser() 
         parser.add_argument('content', type=str, required=True, help='Message cannot be blank')

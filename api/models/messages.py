@@ -3,9 +3,9 @@ from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy 
 from flask_marshmallow import Marshmallow
 
-from models.base_resource import AddUpdateDelete
-from models.users import User  
-from models.base import db 
+from api.models.base_resource import AddUpdateDelete
+from api.models.users import User  
+from api.models.base import db 
 
 
 
