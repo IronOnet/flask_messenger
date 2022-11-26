@@ -4,16 +4,24 @@
 
 # Project Description  
 
-=> This project aims to emulate the functionalities of a messaging application backend like "Whatsapp" and "Wechat" 
+=> This project aims to emulate the functionalities of a messaging application backend like "Whatsapp" and "Wechat" , this project provides an indpepth implementation of a chat backend in python 
 
 
-# Contents 
+# Features 
 
-# How to install and Run the Project 
+    - 1v1 chat 
+    - User Online/Offline availability 
+    - Last seen time 
+    - Unread message count indicator 
+    - Status update (Realtime)
 
-# How to Use the Project 
+# Future improvements: 
+    - Mobile client 
+    - Web client 
 
-# Licencse
+# License 
 
+    MIT
 # Contribution 
 
+    - You can submit a PR, and I'll be glad to review it.
